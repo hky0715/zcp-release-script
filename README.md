@@ -1,3 +1,4 @@
+```
 cd bin
 
 export version=1.0.0
@@ -27,3 +28,4 @@ bash tag.sh zcp-iam push  # push commit and tag
 # 1. create image list : docker images | grep -e ^cloudzcp > images
 # 2. need to login at ibm-registry
 bash mig.sh images registry.au-syd.bluemix.net/cloudzcp/
+```
