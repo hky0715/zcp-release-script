@@ -22,3 +22,8 @@ bash build.sh     # docker images | grep $version | sort
 bash tag.sh               # print all diff
 bash tag.sh zcp-iam       # add, commit, tag
 bash tag.sh zcp-iam push  # push commit and tag
+
+# push docker images to ibm-registry
+# 1. create image list : docker images | grep -e ^cloudzcp > images
+# 2. need to login at ibm-registry
+bash mig.sh images registry.au-syd.bluemix.net/cloudzcp/
