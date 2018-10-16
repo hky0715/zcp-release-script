@@ -29,8 +29,13 @@ bash tag.sh show zcp-iam
 bash tag.sh tag  zcp-iam
 bash tag.sh push zcp-iam
 
+# install ibmcloud cli
+curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
+ibmcloud plugin install container-registry -r Bluemix
+ibmcloud login
+
 # push docker images to ibm-registry
 # 1. create image list : docker images | grep -e ^cloudzcp > images
 # 2. need to login at ibm-registry
-bash mig.sh images registry.au-syd.bluemix.net/cloudzcp/
+bash mig.sh images registry.au-syd.bluemix.net/cloudzcp
 ```
