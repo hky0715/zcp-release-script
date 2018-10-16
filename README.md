@@ -30,6 +30,8 @@ bash tag.sh tag  zcp-iam
 bash tag.sh push zcp-iam
 
 # install ibmcloud cli
+# > https://console.bluemix.net/docs/cli/reference/ibmcloud/download_cli.html#install_use
+# > https://console.bluemix.net/docs/services/Registry/index.html#index
 curl -fsSL https://clis.ng.bluemix.net/install/linux | sh
 ibmcloud plugin install container-registry -r Bluemix
 ibmcloud login
