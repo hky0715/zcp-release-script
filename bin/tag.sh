@@ -1,26 +1,25 @@
 #!/bin/bash
 
 version=${version:-1.0.0}
+cmd=${1:-show}
+filter=$2
 
 REPO=`dirname $(pwd)`/$version
 
-if [ "$1" == '' ]; then
-  cd $REPO
-  ls | xargs -I{} echo "echo ++++ {}; git -C {} diff --name-only; echo ''" | bash
-
-  exit 0
-fi
-
-if [ -d "$REPO/$1" ]; then
-  cd $REPO/$1
-  git add --all
-  git commit -m "prepare release: $version"
-  git tag -d $version
-  git tag -a $version -m "Release: $version"
-  git tag
-
-  if [ "$2" == 'push' ]; then
-    git push
-    git push origin $version
+# print status of all repository
+#  backup :: ls | xargs -I{} echo "echo ++++ {}; git -C {} tag; git -C {} diff --name-only; echo ''" | bash
+cd $REPO
+ls | grep "$filter" | while read proj; do
+  echo ++++ $proj
+  cd $REPO/$proj
+  if [ "$cmd" == 'tag' ]; then
+    git tag -d $version
+    git tag -a $version -m "Cloud Z CP v$version"
+  elif [ "$cmd" == 'push' ]; then
+    git push -f origin $version
+  elif [ "$cmd" == 'show' ]; then
+    git tag
   fi
-fi
+
+  echo ''
+done;

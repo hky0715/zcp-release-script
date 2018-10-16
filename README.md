@@ -20,9 +20,14 @@ bash chart.sh
 bash build.sh     # docker images | grep $version | sort
 
 # tag
-bash tag.sh               # print all diff
-bash tag.sh zcp-iam       # add, commit, tag
-bash tag.sh zcp-iam push  # push commit and tag
+# > for all repo
+bash tag.sh show      # print all diff
+bash tag.sh tag       # delete and add new tag
+bash tag.sh push      # push tag (-f, force)
+# > for single repo
+bash tag.sh show zcp-iam
+bash tag.sh tag  zcp-iam
+bash tag.sh push zcp-iam
 
 # push docker images to ibm-registry
 # 1. create image list : docker images | grep -e ^cloudzcp > images

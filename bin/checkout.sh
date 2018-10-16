@@ -16,4 +16,4 @@ cat .target | while read url; do
 done
 
 cd $REPO
-ls | xargs -I{} git -C {} pull
+ls | xargs -I{} bash -c "echo ++++ {}; git -C {} pull"
