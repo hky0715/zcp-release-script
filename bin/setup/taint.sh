@@ -53,13 +53,12 @@ wp_id() {
 }
 
 # stop any command is fail
-trap "fail_trap" EXIT
+trap "{ set +x; } 2>/dev/null && fail_trap" EXIT ERR
 set -e -o pipefail
 
 
 # CONST
 TEMP=.$$
-TEMP_ERR=.$$.err
 REGX_M='^mngt_'
 REGX_L='^logging_'
 
@@ -76,7 +75,6 @@ wp_l=$(wp_id "$REGX_L")
 
 
 # print executed command
-trap "{ set +x; } 2>/dev/null" ERR
 set -x
 
 # label
