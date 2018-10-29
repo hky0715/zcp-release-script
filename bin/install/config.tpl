@@ -9,5 +9,5 @@ data:
   KEYCLOAK_MASTER_CLIENTID: master-realm
   KEYCLOAK_SERVER_URL: https://${domain_prefix}iam.cloudzcp.io/auth/
   KUBE_APISERVER_URL: https://${api_server}
-  JENKINS_SERVER_URL: https://${domain_prefix}jenkins.cloudzcp.io
+  JENKINS_SERVER_URL: http://zcp-jenkins:8080
   JENKINS_TEMPLATE_PATH: classpath:jenkins/folder.xml
