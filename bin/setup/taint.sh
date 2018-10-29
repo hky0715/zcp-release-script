@@ -79,9 +79,9 @@ set -x
 
 # label
 kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_m node-role.kubernetes.io/management=''
-kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_m role/management
+kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_m role=management
 kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_l node-role.kubernetes.io/logging=''
-kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_l role/logging
+kubectl label node -l $overwrite ibm-cloud.kubernetes.io/worker-pool-id=$wp_l role=logging
 
 # taint
 kubectl taint nodes -l $overwrite role=management management=true:NoSchedule
